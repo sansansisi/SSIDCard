@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SSIDCard_Example' do
+  pod 'SSIDCard', :path => '../'
+
+  target 'SSIDCard_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
