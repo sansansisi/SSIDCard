@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SSIDCard'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SSIDCard.'
+  s.summary          = '识别中国二代身份证号码'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,23 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+TODO: 通过扫描中国二代身份证，识别身份证号码.
                        DESC
 
-  s.homepage         = 'https://github.com/753331342@qq.com/SSIDCard'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/sansansisi'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '753331342@qq.com' => 'zhangjiamingcoder@gmail.com' }
-  s.source           = { :git => 'https://github.com/753331342@qq.com/SSIDCard.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { '毵毵肆肆' => 'zhangjiamingcoder@gmail.com' }
+  s.source           = { :git => 'https://github.com/sansansisi/SSIDCard.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'SSIDCard/Classes/**/*'
+  #s.source_files = 'SSIDCard/Classes/**/*'
+  s.source_files = "SSIDCard/Classes/**/*", "SSIDCard/Lib"
+  s.resources = "SSIDCard/Resource/**"
+  s.framework  = "UIKit"
+  s.requires_arc = true
+  s.dependency 'OpenCV-Dynamic', '~> 3.2.4'
+  s.private_header_files = 'SSIDCard/Classes/Private/Header/leptonica/*.h', 'SSIDCard/Classes/Private/Header/tesseract/*.h', 'SSIDCard/Classes/Private/**/*.h'
+  s.ios.vendored_library = 'SSIDCard/Lib/*.a'
+  s.public_header_files = 'SSIDCard/Classes/Public/**/*.h'
   
-  # s.resource_bundles = {
-  #   'SSIDCard' => ['SSIDCard/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

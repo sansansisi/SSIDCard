@@ -2,8 +2,8 @@
 //  SSAppDelegate.h
 //  SSIDCard
 //
-//  Created by 753331342@qq.com on 04/26/2018.
-//  Copyright (c) 2018 753331342@qq.com. All rights reserved.
+//  Created by 张家铭 on 2018/4/26.
+//  Copyright © 2018年 sansansisi. All rights reserved.
 //
 
 @import UIKit;

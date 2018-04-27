@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1F9D61FB806395421D381D6B /* Pods_SSIDCard_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814E3D27BC6DEA609E13193 /* Pods_SSIDCard_Tests.framework */; };
+		35E4F72A2091D6290048E543 /* SSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F7292091D6290048E543 /* SSViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* SSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* SSAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* SSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* SSViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -40,6 +40,9 @@
 		058D96F48BB6DC99BCD7BCF3 /* Pods_SSIDCard_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSIDCard_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAFAFF0ADCE96C36444F758 /* SSIDCard.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SSIDCard.podspec; path = ../SSIDCard.podspec; sourceTree = "<group>"; };
 		12726A12683018CAF148B64D /* Pods-SSIDCard_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSIDCard_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSIDCard_Tests/Pods-SSIDCard_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		35543D682092DE72008D3615 /* SSIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SSIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35E4F7282091D6290048E543 /* SSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };
+		35E4F7292091D6290048E543 /* SSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSViewController.m; sourceTree = "<group>"; };
 		4814E3D27BC6DEA609E13193 /* Pods_SSIDCard_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSIDCard_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* SSIDCard_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSIDCard_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,8 +54,6 @@
 		6003F59B195388D20070C39A /* SSIDCard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSIDCard-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* SSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* SSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* SSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* SSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* SSIDCard_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSIDCard_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -119,6 +120,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35543D682092DE72008D3615 /* SSIDCard.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -135,8 +137,8 @@
 				6003F59C195388D20070C39A /* SSAppDelegate.h */,
 				6003F59D195388D20070C39A /* SSAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* SSViewController.h */,
-				6003F5A6195388D20070C39A /* SSViewController.m */,
+				35E4F7282091D6290048E543 /* SSViewController.h */,
+				35E4F7292091D6290048E543 /* SSViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -245,11 +247,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SS;
-				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "zhangjiamingcoder@gmail.com";
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = sansansisi;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = GKRY9SD569;
+						DevelopmentTeam = RQ2GUTNWPB;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -359,10 +361,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SSIDCard_Example/Pods-SSIDCard_Example-frameworks.sh",
+				"${PODS_ROOT}/OpenCV-Dynamic/opencv2.framework",
 				"${BUILT_PRODUCTS_DIR}/SSIDCard/SSIDCard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/opencv2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSIDCard.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,8 +381,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E4F72A2091D6290048E543 /* SSViewController.m in Sources */,
 				6003F59E195388D20070C39A /* SSAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* SSViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,19 +441,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -477,18 +494,31 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -507,7 +537,7 @@
 			baseConfigurationReference = 9DA8DDEA354EEDDEDD2E7EC0 /* Pods-SSIDCard_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GKRY9SD569;
+				DEVELOPMENT_TEAM = RQ2GUTNWPB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SSIDCard/SSIDCard-Prefix.pch";
 				INFOPLIST_FILE = "SSIDCard/SSIDCard-Info.plist";
@@ -525,7 +555,7 @@
 			baseConfigurationReference = F53FBFB90B8ECF238319F843 /* Pods-SSIDCard_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GKRY9SD569;
+				DEVELOPMENT_TEAM = RQ2GUTNWPB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SSIDCard/SSIDCard-Prefix.pch";
 				INFOPLIST_FILE = "SSIDCard/SSIDCard-Info.plist";
@@ -542,6 +572,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C022F92A5DCC5ACF20C3A3E4 /* Pods-SSIDCard_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -566,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 12726A12683018CAF148B64D /* Pods-SSIDCard_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
