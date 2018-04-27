@@ -6,7 +6,7 @@
 ![图片](http://oarzzvu0u.bkt.clouddn.com/idcard.gif)
 
 ## 介绍
-扫描识别身份证号，完美支持bitcode。上图是直接扫描搜索的照片，所以没有打码😊
+扫描识别身份证号，完美支持bitcode。上图是直接扫描搜索的照片，所以没有打码😊(依赖OpenCV，这个库比较大，pod install时需要多等一会😜)
 
 ## 使用
 - `Podfile`中`pod 'SSIDCard'`
