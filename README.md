@@ -9,18 +9,26 @@
 扫描识别身份证号，完美支持bitcode。上图是直接扫描搜索的照片，所以没有打码😊
 
 ## 使用
-- info.plist文件中增加`Privacy - Camera Usage Description`描述，否则崩溃
+- `Podfile`中`pod 'SSIDCard'`
+- `info.plist`文件中增加`Privacy - Camera Usage Description`描述，否则崩溃
 - 导入头文件`<SSIDCard/SSIDCard.h>`
 - 两种调用方式：
 	- block:
-	```ruby
+	```
 	SSScanViewController *scanVC = [[SSScanViewController alloc] 
 	initWithBlock:^(NSString *result) {
 		NSLog(@"%@", result);
 	}];
+	[self presentViewController:scanVC animated:YES completion:nil];
 	```
 	- delegate
 	```
+	SSScanViewController *scanVC = [[SSScanViewController alloc]init];
+	
+	scanVC.delegate = self;
+	[self presentViewController:sv animated:YES completion:nil];
+	
+	实现代理方法：
 	- (void)ss_scanViewController:(SSScanViewController *)scanViewController
    didObtainedRecognizeResult:(NSString *)recognizeResult {
 	NSLog(@"%@", recognizeResult);;
