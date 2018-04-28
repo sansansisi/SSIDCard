@@ -23,16 +23,9 @@
 	```
 	- delegate
 	```
-	SSScanViewController *scanVC = [[SSScanViewController alloc]init];
-	
+	SSScanViewController *scanVC = [[SSScanViewController alloc] init];
 	scanVC.delegate = self;
-	[self presentViewController:sv animated:YES completion:nil];
-	
-	实现代理方法：
-	- (void)ss_scanViewController:(SSScanViewController *)scanViewController
-   didObtainedRecognizeResult:(NSString *)recognizeResult {
-	NSLog(@"%@", recognizeResult);;
-}
+	实现代理方法：- (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(NSString *)recognizeResult
 	```
 
 ## Author
