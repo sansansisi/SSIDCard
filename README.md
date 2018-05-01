@@ -3,10 +3,10 @@
 [![Version](https://img.shields.io/cocoapods/v/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 [![License](https://img.shields.io/cocoapods/l/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 [![Platform](https://img.shields.io/cocoapods/p/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
-![图片](http://oarzzvu0u.bkt.clouddn.com/idcard.gif)
+![图片](http://oarzzvu0u.bkt.clouddn.com//image/gif/idcard.gifidcard.gif)
 
 ## 介绍
-扫描识别身份证号，完美支持bitcode。上图是直接扫描搜索的照片，所以没有打码😊(依赖OpenCV，这个库比较大，pod install时需要多等一会😜)
+扫描识别身份证号，完美支持`bitcode`。依赖`OpenCV`，这个库比较大，`pod install`时需要多等一会😜
 
 ## 使用
 - `Podfile`中`pod 'SSIDCard'`
@@ -28,9 +28,9 @@
 	实现代理方法：- (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(NSString *)recognizeResult
 	```
 
-## Author
+## 交流讨论
 
-sansansisi, zhangjiamingcoder@gmail.com
+有任何问题，欢迎提`issue`。欢迎加入QQ群参与讨论：***777044924***
 
 ## License
 
