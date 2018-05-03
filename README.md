@@ -15,11 +15,17 @@
 - 两种调用方式：
 	- block:
 	```
+	OC:
 	SSScanViewController *scanVC = [[SSScanViewController alloc] 
 	initWithBlock:^(NSString *result) {
 		NSLog(@"%@", result);
 	}];
 	[self presentViewController:scanVC animated:YES completion:nil];
+	Swift:
+	let vc = SSScanViewController.init { (result) in
+			print(result ?? "")
+		}
+		self.present(vc!, animated: true, completion: nil)
 	```
 	- delegate
 	```

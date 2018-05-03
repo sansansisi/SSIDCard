@@ -7,12 +7,9 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
-
 #import "SSScanViewController.h"
-
 #import "SSIDCardRectView.h"
 #import "SSConstants.h"
-#import "UIView+Frame.h"
 #import "NSString+SS.h"
 #import "SSImageTool.h"
 #import "SSOpencvImageTool.h"

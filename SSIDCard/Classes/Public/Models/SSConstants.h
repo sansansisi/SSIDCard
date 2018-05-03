@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIView+Frame.h"
+#import <SSIDCard/UIView+SS.h>
 
 #define SS_IDCARDHEIGTHWIDTHRATIO  (54.0 / 85.6)  // 身份证高与宽的比
 #define SS_IDWIDTH 290.0 // 身份证的宽
