@@ -21,11 +21,13 @@
 		NSLog(@"%@", result);
 	}];
 	[self presentViewController:scanVC animated:YES completion:nil];
+   ```
+   ```
 	Swift:
 	let vc = SSScanViewController.init { (result) in
 			print(result ?? "")
 		}
-		self.present(vc!, animated: true, completion: nil)
+	self.present(vc!, animated: true, completion: nil)
 	```
 	- delegate
 	```
