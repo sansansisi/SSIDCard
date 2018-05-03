@@ -1,3 +1,4 @@
 *.mm linguist-language=Objective-C
 *.m linguist-language=Objective-C
 *.cpp linguist-language=Objective-C
+*.a linguist-language=Objective-C
