@@ -8,6 +8,10 @@
 		<data>
 		/7BhvhnwRIUE8GZ6lPMTttmbHFw=
 		</data>
+		<key>Resources/ssidcard_navi_orange.tiff</key>
+		<data>
+		LjaHTS8oV5hNH541gFuvo7XoqHA=
+		</data>
 		<key>Resources/ssidcard_profile.png</key>
 		<data>
 		VoddHUubDqTSik5kzpd1otCMHbw=
@@ -15,6 +19,10 @@
 		<key>Resources/ssidcard_rect.tiff</key>
 		<data>
 		uw6LsJ++BQA25aHB2yRazXeYHn0=
+		</data>
+		<key>Resources/ssidcard_torch.tiff</key>
+		<data>
+		a5kvzfqQF6I/bJzy74VxJAW1zXA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -28,6 +36,17 @@
 			<key>hash2</key>
 			<data>
 			e7gV4TeF/paamT5fjFW5wLphXdlSYQ9rJGh5+4WiNro=
+			</data>
+		</dict>
+		<key>Resources/ssidcard_navi_orange.tiff</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LjaHTS8oV5hNH541gFuvo7XoqHA=
+			</data>
+			<key>hash2</key>
+			<data>
+			OdSIxGKr3VXgpekWFAU/8MMsYgynANeX+eMa1/wXK+I=
 			</data>
 		</dict>
 		<key>Resources/ssidcard_profile.png</key>
@@ -50,6 +69,17 @@
 			<key>hash2</key>
 			<data>
 			RlNmGEkBND/vDJdBSjokGIcb+aWoUp/5ZGr0boYZrec=
+			</data>
+		</dict>
+		<key>Resources/ssidcard_torch.tiff</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			a5kvzfqQF6I/bJzy74VxJAW1zXA=
+			</data>
+			<key>hash2</key>
+			<data>
+			Yv/gtKL9VzDi0WqYx4vLzasFdV1iwAGJMZtRAwH0iqA=
 			</data>
 		</dict>
 	</dict>

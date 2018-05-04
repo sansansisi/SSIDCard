@@ -14,6 +14,7 @@
 #import "SSImageTool.h"
 #import "SSOpencvImageTool.h"
 #import "SSTesseract.h"
+#import "SSIDCard.h"
 
 @interface SSScanViewController () <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate>
 
@@ -248,10 +249,10 @@ BOOL isIdentityCardNumber(NSString *cardNumber) {
 - (UIButton *)torchBtn {
 	if (!_torchBtn) {
 		_torchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-		_torchBtn.frame = CGRectMake(ss_viewWidth() - 10 - 44, ss_statusBarHeight(), 44, ss_navigationBarHeight());
-		[_torchBtn setTitle:@"电筒" forState:UIControlStateNormal];
-		[_torchBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-		[_torchBtn addTarget:self action:@selector(onTorchBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+		_torchBtn.frame = CGRectMake(ss_viewWidth() - 10 - 40, ss_statusBarHeight() + 2, 40, 40);
+		[_torchBtn setImage:[UIImage imageNamed:@"ssidcard_torch.tiff" inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[SSIDCard class]] pathForResource:[NSString stringWithFormat:@"%@", [SSIDCard class]] ofType:@"bundle"]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+		UITapGestureRecognizer *tapReco = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTorchBtnClicked)];
+		[_torchBtn addGestureRecognizer:tapReco];
 	}
 	return _torchBtn;
 }
@@ -270,10 +271,10 @@ BOOL isIdentityCardNumber(NSString *cardNumber) {
 - (UIButton *)returnBtn {
 	if (!_returnBtn) {
 		_returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-		_returnBtn.frame = CGRectMake(10, ss_statusBarHeight(), 44, ss_navigationBarHeight());
-		[_returnBtn setTitle:@"返回" forState:UIControlStateNormal];
-		[_returnBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-		[_returnBtn addTarget:self action:@selector(onReturnBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+		_returnBtn.frame = CGRectMake(10, ss_statusBarHeight() + 2, 40, 40);		
+		[_returnBtn setImage:[UIImage imageNamed:@"ssidcard_navi_orange.tiff" inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[SSIDCard class]] pathForResource:[NSString stringWithFormat:@"%@", [SSIDCard class]] ofType:@"bundle"]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+		UITapGestureRecognizer *tapReco = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onReturnBtnClicked)];
+		[_returnBtn addGestureRecognizer:tapReco];
 	}
 	return _returnBtn;
 }
