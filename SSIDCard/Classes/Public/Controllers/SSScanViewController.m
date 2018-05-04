@@ -249,7 +249,7 @@ BOOL isIdentityCardNumber(NSString *cardNumber) {
 - (UIButton *)torchBtn {
 	if (!_torchBtn) {
 		_torchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-		_torchBtn.frame = CGRectMake(ss_viewWidth() - 10 - 40, ss_statusBarHeight() + 2, 40, 40);
+		_torchBtn.frame = CGRectMake(ss_viewWidth() - 16 - 30, ss_statusBarHeight() + (ss_navigationBarHeight() - 30) * 0.5, 30, 30);
 		[_torchBtn setImage:[UIImage imageNamed:@"ssidcard_torch.tiff" inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[SSIDCard class]] pathForResource:[NSString stringWithFormat:@"%@", [SSIDCard class]] ofType:@"bundle"]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
 		[_torchBtn addTarget:self action:@selector(onTorchBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 	}
@@ -270,7 +270,7 @@ BOOL isIdentityCardNumber(NSString *cardNumber) {
 - (UIButton *)returnBtn {
 	if (!_returnBtn) {
 		_returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-		_returnBtn.frame = CGRectMake(9, ss_statusBarHeight() + 3, 38, 38);
+		_returnBtn.frame = CGRectMake(16, ss_statusBarHeight() + (ss_navigationBarHeight() - 30) * 0.5, 30, 30);
 		[_returnBtn setImage:[UIImage imageNamed:@"ssidcard_navi_orange.tiff" inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[SSIDCard class]] pathForResource:[NSString stringWithFormat:@"%@", [SSIDCard class]] ofType:@"bundle"]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
 		[_returnBtn addTarget:self action:@selector(onReturnBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 	}
