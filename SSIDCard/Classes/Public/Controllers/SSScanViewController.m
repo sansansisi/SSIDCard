@@ -251,8 +251,7 @@ BOOL isIdentityCardNumber(NSString *cardNumber) {
 		_torchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 		_torchBtn.frame = CGRectMake(ss_viewWidth() - 10 - 40, ss_statusBarHeight() + 2, 40, 40);
 		[_torchBtn setImage:[UIImage imageNamed:@"ssidcard_torch.tiff" inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[SSIDCard class]] pathForResource:[NSString stringWithFormat:@"%@", [SSIDCard class]] ofType:@"bundle"]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-		UITapGestureRecognizer *tapReco = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTorchBtnClicked)];
-		[_torchBtn addGestureRecognizer:tapReco];
+		[_torchBtn addTarget:self action:@selector(onTorchBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 	}
 	return _torchBtn;
 }
@@ -271,10 +270,9 @@ BOOL isIdentityCardNumber(NSString *cardNumber) {
 - (UIButton *)returnBtn {
 	if (!_returnBtn) {
 		_returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-		_returnBtn.frame = CGRectMake(10, ss_statusBarHeight() + 2, 40, 40);		
+		_returnBtn.frame = CGRectMake(9, ss_statusBarHeight() + 3, 38, 38);
 		[_returnBtn setImage:[UIImage imageNamed:@"ssidcard_navi_orange.tiff" inBundle:[NSBundle bundleWithPath:[[NSBundle bundleForClass:[SSIDCard class]] pathForResource:[NSString stringWithFormat:@"%@", [SSIDCard class]] ofType:@"bundle"]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-		UITapGestureRecognizer *tapReco = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onReturnBtnClicked)];
-		[_returnBtn addGestureRecognizer:tapReco];
+		[_returnBtn addTarget:self action:@selector(onReturnBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 	}
 	return _returnBtn;
 }
