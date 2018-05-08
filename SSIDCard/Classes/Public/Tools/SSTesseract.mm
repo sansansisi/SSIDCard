@@ -70,6 +70,7 @@
 
 - (void)dealloc {
 	if (_tesseract != nullptr) {
+		_tesseract->End();
 		delete _tesseract;
 		_tesseract = nullptr;
 	}

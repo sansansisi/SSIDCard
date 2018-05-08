@@ -46,10 +46,11 @@
 		&& rect.size.height >= image.size.height) {
 		return image;
 	}
-	
-	CGImageRef sourceImageRef = image.CGImage;
-	CGImageRef newImageRef = CGImageCreateWithImageInRect(sourceImageRef, rect);
-	return [UIImage imageWithCGImage:newImageRef];
+
+	CGImageRef newImageRef = CGImageCreateWithImageInRect(image.CGImage, rect);
+	UIImage *returnImage = [UIImage imageWithCGImage:newImageRef];
+	CGImageRelease(newImageRef);
+	return returnImage;
 }
 
 @end

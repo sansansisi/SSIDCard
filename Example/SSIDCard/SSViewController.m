@@ -35,7 +35,7 @@
 
 #pragma mark - <SSScanViewControllerDelegate>
 - (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(NSString *)recognizeResult {
-	self.resultLabel.text = recognizeResult;
+	_resultLabel.text = recognizeResult;
 }
 
 @end

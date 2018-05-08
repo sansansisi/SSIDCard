@@ -74,16 +74,14 @@
 	
 	CGColorSpaceRef colorSpace;
 	
-	if (cvMat.elemSize() == 1)
-	{
+	if (cvMat.elemSize() == 1) {
 		colorSpace = CGColorSpaceCreateDeviceGray();
-	}
-	else
-	{
+	} else {
 		colorSpace = CGColorSpaceCreateDeviceRGB();
 	}
 	
-	CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge_retained CFDataRef)data);
+	CFDataRef dataRef = (__bridge CFDataRef)data;
+	CGDataProviderRef provider = CGDataProviderCreateWithCFData(dataRef);
 	
 	CGImageRef imageRef = CGImageCreate(cvMat.cols,                                     // Width
 										cvMat.rows,                                     // Height

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,14 +22,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="识别结果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-Sc-EUK">
-                                <rect key="frame" x="153" y="323" width="69.5" height="21"/>
+                                <rect key="frame" x="0.0" y="323.5" width="375" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kw-Me-lTo">
-                                <rect key="frame" x="106" y="384" width="163" height="50"/>
+                                <rect key="frame" x="150" y="364" width="74" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1S9-qD-jWl"/>
+                                    <constraint firstAttribute="height" constant="50" id="b66-IQ-VQ6"/>
                                 </constraints>
                                 <state key="normal" title="点击扫描">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,20 +41,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="0d9-W9-o1N"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7kw-Me-lTo" secondAttribute="trailing" constant="90" id="JcL-ZK-JhD"/>
-                            <constraint firstItem="7kw-Me-lTo" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="90" id="Wnt-iH-kIs"/>
-                            <constraint firstItem="7kw-Me-lTo" firstAttribute="top" secondItem="KV4-Sc-EUK" secondAttribute="bottom" constant="40" id="lFm-ZO-ghL"/>
-                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" id="try-uN-sjh"/>
+                            <constraint firstAttribute="trailing" secondItem="KV4-Sc-EUK" secondAttribute="trailing" id="Gyw-ys-6XB"/>
+                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="ghl-TK-DmS"/>
+                            <constraint firstItem="7kw-Me-lTo" firstAttribute="top" secondItem="KV4-Sc-EUK" secondAttribute="bottom" constant="20" id="h3u-3L-201"/>
+                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" id="tVX-TA-9Q2"/>
+                            <constraint firstItem="7kw-Me-lTo" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="vyS-Dr-QVg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultLabel" destination="KV4-Sc-EUK" id="6cn-Rc-1bZ"/>
+                        <outlet property="resultLabel" destination="KV4-Sc-EUK" id="WM9-h0-Goz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
+            <point key="canvasLocation" x="304.5" y="431.5"/>
         </scene>
     </scenes>
 </document>
