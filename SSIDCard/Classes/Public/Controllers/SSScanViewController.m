@@ -215,7 +215,7 @@ BOOL isIdentityCardNumber(NSString *cardNumber) {
 		UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"您的设备没有闪光设备，不能提供手电筒功能" preferredStyle:UIAlertControllerStyleAlert];
 		
 		UIAlertAction *actionAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-			self.torchBtn.selected = !_torchBtn.selected;
+			_torchBtn.selected = !_torchBtn.selected;
 			[alert dismissViewControllerAnimated:YES completion:nil];
 		}];
 		[alert addAction:actionAction];
