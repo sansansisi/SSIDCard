@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 [![License](https://img.shields.io/cocoapods/l/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 [![Platform](https://img.shields.io/cocoapods/p/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
-![图片](http://oarzzvu0u.bkt.clouddn.com/ssidcard.gif)
+![图片](http://oarzzvu0u.bkt.clouddn.com/ssidcard_github.gif)
 ## 介绍
 扫描识别**姓名**和**身份证号**，完美支持`bitcode`。依赖`OpenCV`，这个库比较大，`pod install`时需要多等一会😜
 
