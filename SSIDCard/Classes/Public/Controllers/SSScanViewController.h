@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @class SSScanViewController;
+@class SSIDCard;
 
 @protocol SSScanViewControllerDelegate <NSObject>
 
 @required
-- (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(NSString *)recognizeResult;
+- (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(SSIDCard *)idcard;
 
 @end
 
-typedef void(^recognizeBlock)(NSString *result);
+typedef void(^recognizeBlock)(SSIDCard *idcard);
 
 @interface SSScanViewController : UIViewController
 

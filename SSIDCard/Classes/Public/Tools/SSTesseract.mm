@@ -97,8 +97,7 @@
 
 #pragma mark - Private Method
 - (BOOL)configTesseractEngine {
-	int initReturnCode = self.tesseract->Init(self.dataPath.UTF8String, self.language.UTF8String, tesseract::OEM_TESSERACT_ONLY);
-	self.tesseract->SetVariable("tessedit_char_whitelist", "0123456789X");
+	int initReturnCode = self.tesseract->Init(self.dataPath.UTF8String, self.language.UTF8String, tesseract::OEM_TESSERACT_CUBE_COMBINED);
 	return initReturnCode == 0;
 }
 

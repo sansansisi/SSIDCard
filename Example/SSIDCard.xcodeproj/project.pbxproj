@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		058D96F48BB6DC99BCD7BCF3 /* Pods_SSIDCard_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSIDCard_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0DAFAFF0ADCE96C36444F758 /* SSIDCard.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SSIDCard.podspec; path = ../SSIDCard.podspec; sourceTree = "<group>"; };
+		0DAFAFF0ADCE96C36444F758 /* SSIDCard.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SSIDCard.podspec; path = ../SSIDCard.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		12726A12683018CAF148B64D /* Pods-SSIDCard_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSIDCard_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSIDCard_Tests/Pods-SSIDCard_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		35543D682092DE72008D3615 /* SSIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SSIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E4F7282091D6290048E543 /* SSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };

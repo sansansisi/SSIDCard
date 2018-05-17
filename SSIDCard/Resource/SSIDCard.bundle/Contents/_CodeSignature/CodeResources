@@ -4,7 +4,11 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/IDCard.traineddata</key>
+		<key>Resources/SSIDCardName.traineddata</key>
+		<data>
+		91kclPImJPp+UjSibEdtlLJge5I=
+		</data>
+		<key>Resources/SSIDCardNumber.traineddata</key>
 		<data>
 		/7BhvhnwRIUE8GZ6lPMTttmbHFw=
 		</data>
@@ -27,7 +31,18 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Resources/IDCard.traineddata</key>
+		<key>Resources/SSIDCardName.traineddata</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			91kclPImJPp+UjSibEdtlLJge5I=
+			</data>
+			<key>hash2</key>
+			<data>
+			A54ewsbwR/FfmHoD4LxBbivYYDQ4bo/LNG7l4O9/nB4=
+			</data>
+		</dict>
+		<key>Resources/SSIDCardNumber.traineddata</key>
 		<dict>
 			<key>hash</key>
 			<data>

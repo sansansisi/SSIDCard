@@ -3,10 +3,10 @@
 [![Version](https://img.shields.io/cocoapods/v/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 [![License](https://img.shields.io/cocoapods/l/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 [![Platform](https://img.shields.io/cocoapods/p/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
-![图片](http://oarzzvu0u.bkt.clouddn.com/idcardss.gif)
+![图片](http://oarzzvu0u.bkt.clouddn.com/ssidcard.gif)
 
 ## 介绍
-扫描识别身份证号，完美支持`bitcode`。依赖`OpenCV`，这个库比较大，`pod install`时需要多等一会😜[详细教程](https://juejin.im/post/5ae4046ef265da0b7156065f)
+扫描识别**姓名**和**身份证号**，完美支持`bitcode`。依赖`OpenCV`，这个库比较大，`pod install`时需要多等一会😜
 
 ## 使用
 - `Podfile`中`pod 'SSIDCard'`
@@ -16,16 +16,16 @@
 	- block:
 	```
 	OC:
-	SSScanViewController *scanVC = [[SSScanViewController alloc] 
-	initWithBlock:^(NSString *result) {
-		NSLog(@"%@", result);
+	SSScanViewController *scanVC = [[SSScanViewController alloc] initWithBlock:^(SSIDCard *idcard) {
+		self.nameLbale.text = [NSString stringWithFormat:@"姓名：%@", idcard.idName];
+		self.numberLabel.text = [NSString stringWithFormat:@"身份证号：%@", idcard.idNumber];
 	}];
 	[self presentViewController:scanVC animated:YES completion:nil];
    ```
    ```
 	Swift:
-	let vc = SSScanViewController.init { (result) in
-			print(result ?? "")
+	let vc = SSScanViewController.init { (idcard) in
+			print(idcard.idName ?? "")
 		}
 	self.present(vc!, animated: true, completion: nil)
 	```
@@ -33,12 +33,8 @@
 	```
 	SSScanViewController *scanVC = [[SSScanViewController alloc] init];
 	scanVC.delegate = self;
-	实现代理方法：- (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(NSString *)recognizeResult
+	实现代理方法：- (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(SSIDCard *)idcard
 	```
-
-## 交流讨论
-
-有任何问题，欢迎提`issue`。欢迎加入QQ群参与讨论：***777044924***
 
 ## License
 

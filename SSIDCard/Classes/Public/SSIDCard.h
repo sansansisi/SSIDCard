@@ -10,4 +10,7 @@
 
 @interface SSIDCard : NSObject
 
+@property (nonatomic, copy) NSString *idName;
+@property (nonatomic, copy) NSString *idNumber;
+
 @end

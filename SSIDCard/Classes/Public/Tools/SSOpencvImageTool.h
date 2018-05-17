@@ -19,6 +19,9 @@
 
 @interface SSOpencvImageTool : NSObject
 
-+ (UIImage *)ss_obtainIDNumberImage:(UIImage *)image;
+@property (nonatomic, strong) UIImage *idNumberRectImage;
+@property (nonatomic, strong) UIImage *idNameRectImage;
+
+- (void)ss_processImage:(UIImage *)image;
 
 @end

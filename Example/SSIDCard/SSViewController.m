@@ -11,7 +11,8 @@
 
 @interface SSViewController () <SSScanViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbale;
 
 @end
 
@@ -24,18 +25,20 @@
 }
 
 - (IBAction)scanBtnClicked {
-	SSScanViewController *scanVC = [[SSScanViewController alloc] init];
-	scanVC.delegate = self;
+//	SSScanViewController *scanVC = [[SSScanViewController alloc] init];
+//	scanVC.delegate = self;
 	
-//	SSScanViewController *scanVC = [[SSScanViewController alloc] initWithBlock:^(NSString *result) {
-//		self.resultLabel.text = result;
-//	}];
+	SSScanViewController *scanVC = [[SSScanViewController alloc] initWithBlock:^(SSIDCard *idcard) {
+		self.nameLbale.text = [NSString stringWithFormat:@"姓名：%@", idcard.idName];
+		self.numberLabel.text = [NSString stringWithFormat:@"身份证号：%@", idcard.idNumber];
+	}];
 	[self presentViewController:scanVC animated:YES completion:nil];
 }
 
 #pragma mark - <SSScanViewControllerDelegate>
-- (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(NSString *)recognizeResult {
-	_resultLabel.text = recognizeResult;
+- (void)ss_scanViewController:(SSScanViewController *)scanViewController didObtainedRecognizeResult:(SSIDCard *)idcard {
+	self.nameLbale.text = [NSString stringWithFormat:@"姓名：%@", idcard.idName];
+	self.numberLabel.text = [NSString stringWithFormat:@"身份证号：%@", idcard.idNumber];
 }
 
 @end

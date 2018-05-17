@@ -37,6 +37,7 @@
 @property (nonatomic, strong) AVCaptureConnection *connection;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, copy) recognizeBlock block;
+@property (nonatomic, assign) BOOL continueTakePhotoFlag;
 
 @end
 
@@ -147,21 +148,38 @@
 }
 
 - (void)recognizeWithImage:(UIImage *)image {
-	UIImage *recognizeImage = [SSOpencvImageTool ss_obtainIDNumberImage:image];
-	BOOL continueTakePhotoFlag = YES;
-	if (recognizeImage.size.width > 0) {
-		SSTesseract *tesseract = [[SSTesseract alloc] init];
-		tesseract.image = recognizeImage;
+	_continueTakePhotoFlag = YES;
+	
+	SSOpencvImageTool *tool = [[SSOpencvImageTool alloc] init];
+	SSIDCard *idcard = [[SSIDCard alloc] init];
+	[tool ss_processImage:image];
+	
+	if (tool.idNumberRectImage != nil) {
+		SSTesseract *tesseract = [[SSTesseract alloc] initWithLanguage:@"SSIDCardNumber"];
+		tesseract.image = tool.idNumberRectImage;
 		[tesseract recognize];
 		if (tesseract.recognize) {
-			NSString *IDtext = [NSString ss_removeSpaceAndNewline:tesseract.recognizedText];
-			if (isIdentityCardNumber(IDtext)) {
-				continueTakePhotoFlag = NO;
+			NSString *idNumberText = [NSString ss_removeSpaceAndNewline:tesseract.recognizedText];
+			if (isIdentityCardNumber(idNumberText)) {
+				idcard.idNumber = idNumberText;
+			}
+		}
+	}
+	
+	if (tool.idNameRectImage != nil && isIdentityCardNumber(idcard.idNumber)) {
+		SSTesseract *tesseract1 = [[SSTesseract alloc] initWithLanguage:@"SSIDCardName"];
+		tesseract1.image = tool.idNameRectImage;
+		[tesseract1 recognize];
+		if (tesseract1.recognize) {
+			NSString *idNameText = [NSString ss_removeSpaceAndNewline:tesseract1.recognizedText];
+			if (isIdentityCardName(idNameText)) {
+				idcard.idName = idNameText;
+				self.continueTakePhotoFlag = NO;
 				dispatch_async(dispatch_get_main_queue(), ^{
 					if (self.delegate && [self.delegate respondsToSelector:@selector(ss_scanViewController:didObtainedRecognizeResult:)]) {
-						[self.delegate ss_scanViewController:self didObtainedRecognizeResult:IDtext];
+						[self.delegate ss_scanViewController:self didObtainedRecognizeResult:idcard];
 					} else if (self.block) {
-						self.block(IDtext);
+						self.block(idcard);
 					}
 					[self dismissViewControllerAnimated:YES completion:nil];
 				});
@@ -169,7 +187,7 @@
 		}
 	}
 	
-	if (continueTakePhotoFlag) {
+	if (_continueTakePhotoFlag) {
 		[self takePhoto];
 	}
 }
@@ -194,6 +212,11 @@ BOOL isIdentityCardNumber(NSString *cardNumber) {
 	NSString *validateCodeStr = [NSString stringWithFormat:@"%c", validateCode];
 	NSString *lastCode = [cardNumber substringFromIndex:17];
 	return [lastCode compare:validateCodeStr options:NSCaseInsensitiveSearch] == NSOrderedSame;
+}
+
+BOOL isIdentityCardName(NSString *cardName) {
+	if (cardName.length > 3 || cardName.length < 2) { return NO;}
+	return YES;
 }
 
 #pragma mark - Event Respond

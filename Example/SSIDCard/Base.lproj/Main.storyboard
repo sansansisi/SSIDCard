@@ -21,15 +21,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="识别结果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-Sc-EUK">
-                                <rect key="frame" x="0.0" y="323.5" width="375" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证号：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-Sc-EUK">
+                                <rect key="frame" x="0.0" y="323.5" width="375" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kw-Me-lTo">
-                                <rect key="frame" x="150" y="364" width="74" height="50"/>
+                                <rect key="frame" x="151" y="364" width="74" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="b66-IQ-VQ6"/>
+                                    <constraint firstAttribute="height" constant="50" id="MO9-8N-aN1"/>
                                 </constraints>
                                 <state key="normal" title="点击扫描">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,18 +38,30 @@
                                     <action selector="scanBtnClicked" destination="whP-gf-Uak" eventType="touchUpInside" id="j3Y-iU-nS8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T0-bg-4JY">
+                                <rect key="frame" x="0.0" y="282.5" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="cHZ-TD-TWM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="KV4-Sc-EUK" secondAttribute="trailing" id="Gyw-ys-6XB"/>
-                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="ghl-TK-DmS"/>
-                            <constraint firstItem="7kw-Me-lTo" firstAttribute="top" secondItem="KV4-Sc-EUK" secondAttribute="bottom" constant="20" id="h3u-3L-201"/>
-                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" id="tVX-TA-9Q2"/>
-                            <constraint firstItem="7kw-Me-lTo" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="vyS-Dr-QVg"/>
+                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="2gc-SW-G95"/>
+                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" id="4eF-Gu-4A9"/>
+                            <constraint firstItem="KV4-Sc-EUK" firstAttribute="top" secondItem="5T0-bg-4JY" secondAttribute="bottom" constant="20" id="Aqq-mV-Uz6"/>
+                            <constraint firstItem="7kw-Me-lTo" firstAttribute="top" secondItem="KV4-Sc-EUK" secondAttribute="bottom" constant="20" id="LPs-zx-atx"/>
+                            <constraint firstAttribute="trailing" secondItem="5T0-bg-4JY" secondAttribute="trailing" id="mqH-So-mKf"/>
+                            <constraint firstAttribute="trailing" secondItem="KV4-Sc-EUK" secondAttribute="trailing" id="pBK-B1-twX"/>
+                            <constraint firstItem="7kw-Me-lTo" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="utI-ws-tcR"/>
+                            <constraint firstItem="5T0-bg-4JY" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="xIM-Xj-haz"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultLabel" destination="KV4-Sc-EUK" id="WM9-h0-Goz"/>
+                        <outlet property="nameLbale" destination="5T0-bg-4JY" id="meb-uh-iip"/>
+                        <outlet property="numberLabel" destination="KV4-Sc-EUK" id="ZO3-ma-NiA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>

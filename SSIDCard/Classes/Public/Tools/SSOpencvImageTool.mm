@@ -10,7 +10,7 @@
 
 @implementation SSOpencvImageTool
 
-+ (UIImage *)ss_obtainIDNumberImage:(UIImage *)image {
+- (void)ss_processImage:(UIImage *)image {
 	cv::Mat srcMat, resultMat;
 	srcMat = [self matWithImage:image];
 	cv::medianBlur(srcMat, resultMat, 3);
@@ -23,27 +23,112 @@
 	std::vector<std::vector<cv::Point>> contours;
 	cv::findContours(resultMat, contours, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cvPoint(0, 0));
 	cv::Rect numberRect = cv::Rect(0,0,0,0);
+	cv::Rect nameRect = cv::Rect(0,0,0,0);
 	std::vector<std::vector<cv::Point>>::const_iterator itContours = contours.begin();
 	for ( ; itContours != contours.end(); ++itContours) {
 		cv::Rect rect = cv::boundingRect(*itContours);
 		if (rect.x >= numberRect.x && rect.y >= numberRect.y && rect.width > rect.height * 5 && rect.x > 200 && rect.y > 300 && rect.height > 20 && rect.height < 40) {
 			numberRect = rect;
 		}
+		if (rect.x > 150 && rect.x < 250 && rect.y > 50 && rect.y < 150 && rect.height > 20 && rect.height < 50) {
+			nameRect = rect;
+		}
 	}
 	
-	// 定位失败
-	if (numberRect.width == 0 || numberRect.height == 0) {
-		return nil;
+	if (numberRect.width > 0 && numberRect.height > 0) {
+		cv::Mat numberMat = srcMat(numberRect);
+		self.idNumberRectImage = [self imageWithMat:numberMat];
 	}
 	
-	// 定位成功
-	cv::Mat matImage = [self matWithImage:image];
-	resultMat = matImage(numberRect);
-	cvtColor(resultMat, resultMat, cv::COLOR_BGR2GRAY);
-	cv::threshold(resultMat, resultMat, 0, 255, CV_THRESH_OTSU);
+	if (nameRect.width > 0 && nameRect.height > 0) {
+		cv::Mat nameMat = srcMat(nameRect);
+		self.idNameRectImage = [self imageWithMat:nameMat];
+	}
+}
+
+- (UIImage *)imageWithMat:(const cv::Mat&)cvMat {
+	NSData *data = [NSData dataWithBytes:cvMat.data
+								  length:cvMat.step.p[0] * cvMat.rows];
 	
-	UIImage *numberImage = [self imageWithCVMat:resultMat];
-	return numberImage;
+	CGColorSpaceRef colorSpace;
+	
+	if (cvMat.elemSize() == 1) {
+		colorSpace = CGColorSpaceCreateDeviceGray();
+	} else {
+		colorSpace = CGColorSpaceCreateDeviceRGB();
+	}
+	
+	CGDataProviderRef provider =
+	CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+	
+	// Preserve alpha transparency, if exists
+	bool alpha = cvMat.channels() == 4;
+	CGBitmapInfo bitmapInfo = (alpha ? kCGImageAlphaLast : kCGImageAlphaNone) | kCGBitmapByteOrderDefault;
+	
+	// Creating CGImage from cv::Mat
+	CGImageRef imageRef = CGImageCreate(cvMat.cols,
+										cvMat.rows,
+										8 * cvMat.elemSize1(),
+										8 * cvMat.elemSize(),
+										cvMat.step.p[0],
+										colorSpace,
+										bitmapInfo,
+										provider,
+										NULL,
+										false,
+										kCGRenderingIntentDefault
+										);
+	
+	
+	// Getting UIImage from CGImage
+	UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
+	CGImageRelease(imageRef);
+	CGDataProviderRelease(provider);
+	CGColorSpaceRelease(colorSpace);
+	
+	return finalImage;
+}
+
+- (cv::Mat)matWithImage:(UIImage *)image {
+	cv::Mat cvMat;
+	BOOL alphaExist = NO;
+	CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
+	if (alpha == kCGImageAlphaFirst
+		|| alpha == kCGImageAlphaLast
+		|| alpha == kCGImageAlphaPremultipliedFirst
+		|| alpha == kCGImageAlphaPremultipliedLast) {
+		alphaExist = YES;
+	}
+	
+	CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
+	CGFloat cols = CGImageGetWidth(image.CGImage), rows = CGImageGetHeight(image.CGImage);
+	CGContextRef contextRef;
+	CGBitmapInfo bitmapInfo = kCGImageAlphaPremultipliedLast;
+	if (CGColorSpaceGetModel(colorSpace) == kCGColorSpaceModelMonochrome) {
+		cvMat.create(rows, cols, CV_8UC1); // 8 bits per component, 1 channel
+		bitmapInfo = kCGImageAlphaNone;
+		if (!alphaExist)
+			bitmapInfo = kCGImageAlphaNone;
+		else
+			cvMat = cv::Scalar(0);
+		contextRef = CGBitmapContextCreate(cvMat.data, cvMat.cols, cvMat.rows, 8,
+										   cvMat.step[0], colorSpace,
+										   bitmapInfo);
+	} else {
+		cvMat.create(rows, cols, CV_8UC4); // 8 bits per component, 4 channels
+		if (!alphaExist)
+			bitmapInfo = kCGImageAlphaNoneSkipLast |
+			kCGBitmapByteOrderDefault;
+		else
+			cvMat = cv::Scalar(0);
+		contextRef = CGBitmapContextCreate(cvMat.data, cvMat.cols, cvMat.rows, 8,
+										   cvMat.step[0], colorSpace,
+										   bitmapInfo);
+	}
+	CGContextDrawImage(contextRef, CGRectMake(0, 0, cols, rows),
+					   image.CGImage);
+	CGContextRelease(contextRef);
+	return cvMat;
 }
 
 + (cv::Mat)matWithImage:(UIImage *)image {
