@@ -361,12 +361,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SSIDCard_Example/Pods-SSIDCard_Example-frameworks.sh",
-				"${PODS_ROOT}/OpenCV-Dynamic/opencv2.framework",
 				"${BUILT_PRODUCTS_DIR}/SSIDCard/SSIDCard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/opencv2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSIDCard.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

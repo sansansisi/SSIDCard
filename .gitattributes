@@ -3,3 +3,5 @@
 *.cpp linguist-language=Objective-C
 *.a linguist-language=Objective-C
 *.framework filter=lfs diff=lfs merge=lfs -text
+SSIDCard/Frameworks/opencv2.framework/Versions/A/opencv2 filter=lfs diff=lfs merge=lfs -text
+SSIDCard/Frameworks/* filter=lfs diff=lfs merge=lfs -text
