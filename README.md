@@ -7,6 +7,11 @@
 ## 介绍
 扫描识别**姓名**和**身份证号**，完美支持`bitcode`
 
+## 运行示例程序
+- git clone https://github.com/sansansisi/SSIDCard.git
+- cd SSIDCard
+- git lfs pull (请先安装[Git LFS](https://git-lfs.github.com/))
+
 ## 使用
 - `Podfile`中`pod 'SSIDCard'`
 - `info.plist`文件中增加`Privacy - Camera Usage Description`描述，否则崩溃
