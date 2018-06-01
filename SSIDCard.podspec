@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SSIDCard'
-  s.version          = '1.3'
+  s.version          = '1.4'
   s.summary          = '扫描识别中国二代身份证'
 
 # This description is used to generate tags and improve search results.
