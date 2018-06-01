@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 ![图片](http://oarzzvu0u.bkt.clouddn.com/ssidcard_github.gif)
 ## 介绍
-扫描识别**姓名**和**身份证号**，完美支持`bitcode`。依赖`OpenCV`，这个库比较大，`pod install`时需要多等一会😜
+扫描识别**姓名**和**身份证号**，完美支持`bitcode`
 
 ## 使用
 - `Podfile`中`pod 'SSIDCard'`
