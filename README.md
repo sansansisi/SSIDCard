@@ -8,11 +8,15 @@
 扫描识别**姓名**和**身份证号**，完美支持`bitcode`
 
 ## 运行示例程序
+### 克隆方式
 - git clone https://github.com/sansansisi/SSIDCard.git
 - cd SSIDCard
 - git lfs pull (请先安装[Git LFS](https://git-lfs.github.com/),如果克隆下来时，/SSIDCard/Frameworks/opencv2.framework/Versions/A 路径下存在opencv文件(245M大小)，就跳过这一步)
 - cd Example
 - pod install
+
+### 直接下载压缩包方式
+直接下载的zip解压运行，会缺少opencv文件，请去[opencv](https://github.com/opencv/opencv/releases) 下载3.4.1版本的opencv2.framework替换掉本工程的/SSIDCard/Frameworks/opencv2.framework文件,然后执行pod install就可以正确执行示例程序。
 
 ## 使用
 - `Podfile`中`pod 'SSIDCard'`
