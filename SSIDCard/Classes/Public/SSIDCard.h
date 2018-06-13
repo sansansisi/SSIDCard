@@ -9,8 +9,9 @@
 #import "SSScanViewController.h"
 
 @interface SSIDCard : NSObject
-
+/** 姓名 */
 @property (nonatomic, copy) NSString *idName;
+/** ID */
 @property (nonatomic, copy) NSString *idNumber;
 
 @end
