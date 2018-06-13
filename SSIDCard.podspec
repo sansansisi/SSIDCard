@@ -27,15 +27,19 @@ TODO: 通过扫描中国二代身份证，识别姓名和身份证号.
   s.source           = { :git => 'https://github.com/sansansisi/SSIDCard.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-  #s.source_files = 'SSIDCard/Classes/**/*'
-  s.source_files = "SSIDCard/Classes/**/*", "SSIDCard/Lib"
+  s.source_files = "SSIDCard/Classes/Public/**/*", "SSIDCard/Lib"
   s.resources = "SSIDCard/Resource/**"
   s.framework  = "UIKit"
   s.requires_arc = true
-  #s.dependency 'OpenCV-Dynamic', '~> 3.2.4'
-  s.private_header_files = 'SSIDCard/Classes/Private/Header/leptonica/*.h', 'SSIDCard/Classes/Private/Header/tesseract/*.h', 'SSIDCard/Classes/Private/**/*.h'
   s.ios.vendored_library = 'SSIDCard/Lib/*.a'
   s.ios.vendored_frameworks = 'SSIDCard/Frameworks/*.framework'
   s.public_header_files = 'SSIDCard/Classes/Public/**/*.h'
-  
+  s.private_header_files = 'SSIDCard/Classes/Private/Header/**/*.h'
+
+  # s.subspec 'Leptonica' do |ss|
+  #   ss.source_files = 'SSIDCard/Classes/Private/Header/leptonica'
+  #   ss.public_header_files = 'AFNetworking/AFURL{Request,Response}Serialization.h'
+  #   ss.osx.frameworks = 'CoreServices'
+  # end
+
 end
