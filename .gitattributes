@@ -1,6 +1,0 @@
-*.mm linguist-language=Objective-C
-*.m linguist-language=Objective-C
-*.cpp linguist-language=Objective-C
-*.a linguist-language=Objective-C
-SSIDCard/Frameworks/opencv2.framework/Versions/A/opencv2 filter=lfs diff=lfs merge=lfs -text
-
