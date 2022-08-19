@@ -7,6 +7,10 @@
 ## 介绍
 扫描识别**姓名**和**身份证号**，完美支持`bitcode`,姓名和身份证号都是自己训练的模型，因为中文字符庞大，只训练了简单的常用字符，所以姓名识别并不是很准确。
 
+## demo报错
+执行pod install 后运行dmeo报错，请增加下图红框中信息
+![](https://cdn.jsdelivr.net/gh/sansansisi/publicImages/article/Foxmail20220819171836.png)
+
 ## 使用
 - `Podfile`中`pod 'SSIDCard'`
 - `info.plist`文件中增加`Privacy - Camera Usage Description`描述
