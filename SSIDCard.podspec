@@ -32,7 +32,7 @@ TODO: 通过扫描中国二代身份证，识别姓名和身份证号.
   s.framework  = "UIKit","Photos","AVFoundation","CoreMedia","CoreVideo"
   s.requires_arc = true
   s.ios.vendored_library = 'SSIDCard/Lib/*.a'
-  s.ios.vendored_frameworks = 'SSIDCard/Frameworks/*.framework'
+  # s.ios.vendored_frameworks = 'SSIDCard/Frameworks/*.framework'
   s.public_header_files = 'SSIDCard/Classes/Public/**/*.h'
   s.dependency 'OpenCV'
   
