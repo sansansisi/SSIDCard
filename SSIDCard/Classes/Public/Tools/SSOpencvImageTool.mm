@@ -6,7 +6,19 @@
 //  Copyright © 2018年 sansansisi. All rights reserved.
 //
 
+#ifdef __cplusplus
+#import <opencv2/core.hpp>
+#import <opencv2/imgproc.hpp>
+#import <opencv2/core/core_c.h>
+#import <opencv2/imgcodecs/ios.h>
+#endif
+
+#ifdef __ObjC
+#import <UIKit/UIKit.h>
+#endif
+
 #import "SSOpencvImageTool.h"
+using namespace cv;
 
 @implementation SSOpencvImageTool
 
@@ -14,14 +26,14 @@
 	cv::Mat srcMat, resultMat;
 	srcMat = [self matWithImage:image];
 	cv::medianBlur(srcMat, resultMat, 3);
-	
+
 	resultMat = adaptiveThereshold(resultMat);
-	
+
 	cv::Mat erodeKernel = getStructuringElement(cv::MORPH_CROSS, cv::Size(30,1));
 	cv::erode(resultMat, resultMat, erodeKernel, cv::Point(-1, -1), 1);
-	
+
 	std::vector<std::vector<cv::Point>> contours;
-	cv::findContours(resultMat, contours, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cvPoint(0, 0));
+    cv::findContours(resultMat, contours, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE, cvPoint(0, 0));
 	cv::Rect numberRect = cv::Rect(0,0,0,0);
 	cv::Rect nameRect = cv::Rect(0,0,0,0);
 	std::vector<std::vector<cv::Point>>::const_iterator itContours = contours.begin();
@@ -34,12 +46,12 @@
 			nameRect = rect;
 		}
 	}
-	
+
 	if (numberRect.width > 0 && numberRect.height > 0) {
 		cv::Mat numberMat = srcMat(numberRect);
 		self.idNumberRectImage = [self imageWithMat:numberMat];
 	}
-	
+
 	if (nameRect.width > 0 && nameRect.height > 0) {
 		cv::Mat nameMat = srcMat(nameRect);
 		self.idNameRectImage = [self imageWithMat:nameMat];
@@ -49,22 +61,22 @@
 - (UIImage *)imageWithMat:(const cv::Mat&)cvMat {
 	NSData *data = [NSData dataWithBytes:cvMat.data
 								  length:cvMat.step.p[0] * cvMat.rows];
-	
+
 	CGColorSpaceRef colorSpace;
-	
+
 	if (cvMat.elemSize() == 1) {
 		colorSpace = CGColorSpaceCreateDeviceGray();
 	} else {
 		colorSpace = CGColorSpaceCreateDeviceRGB();
 	}
-	
+
 	CGDataProviderRef provider =
 	CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-	
+
 	// Preserve alpha transparency, if exists
 	bool alpha = cvMat.channels() == 4;
 	CGBitmapInfo bitmapInfo = (alpha ? kCGImageAlphaLast : kCGImageAlphaNone) | kCGBitmapByteOrderDefault;
-	
+
 	// Creating CGImage from cv::Mat
 	CGImageRef imageRef = CGImageCreate(cvMat.cols,
 										cvMat.rows,
@@ -78,14 +90,14 @@
 										false,
 										kCGRenderingIntentDefault
 										);
-	
-	
+
+
 	// Getting UIImage from CGImage
 	UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
 	CGImageRelease(imageRef);
 	CGDataProviderRelease(provider);
 	CGColorSpaceRelease(colorSpace);
-	
+
 	return finalImage;
 }
 
@@ -99,7 +111,7 @@
 		|| alpha == kCGImageAlphaPremultipliedLast) {
 		alphaExist = YES;
 	}
-	
+
 	CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
 	CGFloat cols = CGImageGetWidth(image.CGImage), rows = CGImageGetHeight(image.CGImage);
 	CGContextRef contextRef;
@@ -132,13 +144,13 @@
 }
 
 + (cv::Mat)matWithImage:(UIImage *)image {
-	
+
 	CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
 	CGFloat cols = image.size.width;
 	CGFloat rows = image.size.height;
-	
+
 	cv::Mat cvMat(rows, cols, CV_8UC4); // 8 bits per component, 4 channels
-	
+
 	CGContextRef contextRef = CGBitmapContextCreate(cvMat.data,                 // Pointer to backing data
 													cols,                      // Width of bitmap
 													rows,                     // Height of bitmap
@@ -147,27 +159,27 @@
 													colorSpace,                 // Colorspace
 													kCGImageAlphaNoneSkipLast |
 													kCGBitmapByteOrderDefault); // Bitmap info flags
-	
+
 	CGContextDrawImage(contextRef, CGRectMake(0, 0, cols, rows), image.CGImage);
 	CGContextRelease(contextRef);
-	
+
 	return cvMat;
 }
 
 + (UIImage *)imageWithCVMat:(const cv::Mat&)cvMat {
 	NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize() * cvMat.total()];
-	
+
 	CGColorSpaceRef colorSpace;
-	
+
 	if (cvMat.elemSize() == 1) {
 		colorSpace = CGColorSpaceCreateDeviceGray();
 	} else {
 		colorSpace = CGColorSpaceCreateDeviceRGB();
 	}
-	
+
 	CFDataRef dataRef = (__bridge CFDataRef)data;
 	CGDataProviderRef provider = CGDataProviderCreateWithCFData(dataRef);
-	
+
 	CGImageRef imageRef = CGImageCreate(cvMat.cols,                                     // Width
 										cvMat.rows,                                     // Height
 										8,                                              // Bits per component
@@ -179,12 +191,12 @@
 										NULL,                                           // Decode
 										false,                                          // Should interpolate
 										kCGRenderingIntentDefault);                     // Intent
-	
+
 	UIImage *image = [[UIImage alloc] initWithCGImage:imageRef];
 	CGImageRelease(imageRef);
 	CGDataProviderRelease(provider);
 	CGColorSpaceRelease(colorSpace);
-	
+
 	return image;
 }
 
@@ -192,7 +204,7 @@
 cv::Mat adaptiveThereshold(cv::Mat src)
 {
 	cv::Mat dst;
-	cvtColor(src,dst,CV_BGR2GRAY);
+    cv::cvtColor(src,dst,cv::COLOR_BGR2GRAY);
 	int x1, y1, x2, y2;
 	int count=0;
 	long long sum=0;
@@ -207,7 +219,7 @@ cv::Mat adaptiveThereshold(cv::Mat src)
 	{
 		Argv[ii]=new long long[dst.cols];
 	}
-	
+
 	for(int i=0;i<W;i++)
 	{
 		sum=0;
@@ -220,7 +232,7 @@ cv::Mat adaptiveThereshold(cv::Mat src)
 				Argv[j][i]=Argv[j][i-1]+sum;
 		}
 	}
-	
+
 	for(int i=0;i<W;i++)
 	{
 		for(int j=0;j<H;j++)
@@ -239,8 +251,8 @@ cv::Mat adaptiveThereshold(cv::Mat src)
 				y2=H-1;
 			count=(x2-x1)*(y2-y1);
 			sum=Argv[y2][x2]-Argv[y1][x2]-Argv[y2][x1]+Argv[y1][x1];
-			
-			
+
+
 			if((long long)(dst.at<uchar>(j,i)*count)<(long long)sum*(100-T)/100)
 				dst.at<uchar>(j,i)=0;
 			else

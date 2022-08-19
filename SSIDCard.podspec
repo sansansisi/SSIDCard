@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SSIDCard'
-  s.version          = '1.4.1'
+  s.version          = '1.4.2'
   s.summary          = '扫描识别中国二代身份证'
 
 # This description is used to generate tags and improve search results.
@@ -26,13 +26,14 @@ TODO: 通过扫描中国二代身份证，识别姓名和身份证号.
   s.author           = { '毵毵肆肆' => 'zhangjiamingcoder@gmail.com' }
   s.source           = { :git => 'https://github.com/sansansisi/SSIDCard.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.source_files = "SSIDCard/Classes/Public/**/*", "SSIDCard/Lib", 'SSIDCard/Classes/Private/Header/**/*.h'
   s.resources = "SSIDCard/Resource/**"
-  s.framework  = "UIKit"
+  s.framework  = "UIKit","Photos","AVFoundation","CoreMedia","CoreVideo"
   s.requires_arc = true
   s.ios.vendored_library = 'SSIDCard/Lib/*.a'
   s.ios.vendored_frameworks = 'SSIDCard/Frameworks/*.framework'
   s.public_header_files = 'SSIDCard/Classes/Public/**/*.h'
+  s.dependency 'OpenCV'
   
 end
