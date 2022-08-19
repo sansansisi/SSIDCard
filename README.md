@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 [![License](https://img.shields.io/cocoapods/l/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
 [![Platform](https://img.shields.io/cocoapods/p/SSIDCard.svg?style=flat)](https://cocoapods.org/pods/SSIDCard)
-![图片](http://oarzzvu0u.bkt.clouddn.com/ssidcard_github.gif)
+![图片](https://github.com/sansansisi/publicImages/blob/main/RPReplay_Final1660896205.gif)
 ## 介绍
 扫描识别**姓名**和**身份证号**，完美支持`bitcode`
 
@@ -20,7 +20,7 @@
 
 ## 使用
 - `Podfile`中`pod 'SSIDCard'`
-- `info.plist`文件中增加`Privacy - Camera Usage Description`描述，否则崩溃
+- `info.plist`文件中增加`Privacy - Camera Usage Description`描述
 - 导入头文件`<SSIDCard/SSIDCard.h>`
 - 两种调用方式：
 	- block:
