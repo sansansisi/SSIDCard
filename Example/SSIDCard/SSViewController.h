@@ -6,7 +6,7 @@
 //  Copyright © 2018年 sansansisi. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @interface SSViewController : UIViewController
 

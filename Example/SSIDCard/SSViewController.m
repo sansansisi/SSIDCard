@@ -32,6 +32,7 @@
 		self.nameLbale.text = [NSString stringWithFormat:@"姓名：%@", idcard.idName];
 		self.numberLabel.text = [NSString stringWithFormat:@"身份证号：%@", idcard.idNumber];
 	}];
+    scanVC.modalPresentationStyle = UIModalPresentationOverFullScreen;
 	[self presentViewController:scanVC animated:YES completion:nil];
 }
 
